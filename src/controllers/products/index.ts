@@ -11,7 +11,7 @@ const productsController = {
             data: allProducts,
         });
     },
-    
+
     getById: async (_req: Request, res: Response) => {
         try {
             const product = await ProductModel.findById(_req.params.id);
@@ -103,6 +103,7 @@ const productsController = {
             }
         }
     },
+
 };
 
 export default productsController;
