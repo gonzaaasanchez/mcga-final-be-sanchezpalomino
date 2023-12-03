@@ -84,6 +84,25 @@ const productsController = {
         }
     },
 
+    delete: async (_req: Request, res: Response) => {
+        try {
+            const product = await ProductModel.findByIdAndDelete(_req.params.id);
+            if (product) {
+                return res.status(201).json({
+                    message: 'Product successfully deleted',
+                    data: product,
+                    error: false,
+                });
+            }
+        } catch (error) {
+            if (error instanceof Error) {
+                return res.status(400).json({
+                    message: error.message,
+                    error: true,
+                });
+            }
+        }
+    },
 };
 
 export default productsController;
