@@ -52,7 +52,38 @@ const productsController = {
             }
         }
     },
-    
+
+    update: async (_req: Request, res: Response) => {
+        try {
+            const productId = _req.params.id;
+            const updateData = {
+                name: _req.body.name,
+                price: _req.body.price,
+            };
+
+            const product = await ProductModel.findOneAndUpdate(
+                { _id: productId },
+                updateData,
+                { new: true }
+            );
+            if (product) {
+                return res.status(201).json({
+                    message: 'Product successfully updated',
+                    data: product,
+                    error: false,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            if (error instanceof Error) {
+                return res.status(400).json({
+                    message: error.message,
+                    error: true,
+                });
+            }
+        }
+    },
+
 };
 
 export default productsController;
