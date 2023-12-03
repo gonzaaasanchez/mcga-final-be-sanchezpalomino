@@ -1,5 +1,4 @@
 import { model, Schema } from 'mongoose';
-import { ProductData } from '../types';
 
 const productSchema = new Schema({
     name: {
@@ -20,4 +19,4 @@ const productSchema = new Schema({
     },
 });
 
-export default model<ProductData>('Product', productSchema);
+export default model('Product', productSchema);

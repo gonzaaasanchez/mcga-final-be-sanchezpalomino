@@ -1,13 +1,13 @@
-import express, { Express, Response } from 'express';
-import productRouter from './routes/products/index.ts';
+import express from 'express';
+import productRouter from './routes/products/index.js';
 
-const app: Express = express();
+const app = express();
 app.use(express.json());
 
 // app routes
 app.use('/products', productRouter);
 
-app.get('/', (_, res: Response) => {
+app.get('/', (_, res) => {
     res.status(200).send({
         message: 'Server is up ✅ - Environment: ' + process.env.ENV,
         data: undefined,

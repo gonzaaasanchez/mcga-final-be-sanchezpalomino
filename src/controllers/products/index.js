@@ -1,10 +1,9 @@
-import { Request, Response } from 'express';
 import ProductModel from '../../models/product.js';
 
 const productsController = {
 
-    getAll: async (_req: Request, res: Response) => {
-        const allProducts = await ProductModel.find({});
+    getAll: async (_req, res) => {
+        const allProducts = await ProductModel.find();
         return res.status(200).json({
             status: 200,
             total: allProducts.length,
@@ -12,7 +11,7 @@ const productsController = {
         });
     },
 
-    getById: async (_req: Request, res: Response) => {
+    getById: async (_req, res) => {
         try {
             const product = await ProductModel.findById(_req.params.id);
             if (product) {
@@ -31,7 +30,7 @@ const productsController = {
         }
     },
 
-    create: async (_req: Request, res: Response) => {
+    create: async (_req, res) => {
         try {
             const newProduct = new ProductModel({ ..._req.body });
             const product = await newProduct.save();
@@ -53,7 +52,7 @@ const productsController = {
         }
     },
 
-    update: async (_req: Request, res: Response) => {
+    update: async (_req, res) => {
         try {
             const productId = _req.params.id;
             const updateData = {
@@ -84,7 +83,7 @@ const productsController = {
         }
     },
 
-    delete: async (_req: Request, res: Response) => {
+    delete: async (_req, res) => {
         try {
             const product = await ProductModel.findByIdAndDelete(_req.params.id);
             if (product) {
