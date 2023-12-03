@@ -4,7 +4,7 @@ import * as mongoose from 'mongoose';
 const port = 3000 || 8080;
 
 const MONGODB_URL =
-  'mongodb+srv://gonzalosanchez:hola123123@cluster0.zrttfst.mongodb.net/mcga-tp?retryWrites=true&w=majority' ||
+  'mongodb+srv://gonzalosanchez:hola123123@cluster0.zrttfst.mongodb.net/mcga-final?retryWrites=true&w=majority' ||
   '';
 
 mongoose
