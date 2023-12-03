@@ -5,6 +5,11 @@
 - Pochiero
 - Sanchez Palomino
 
+### Servicios disponibles y ejemplos
+- curl -X GET -H "Content-Type: application/json"  http://localhost:3000/products
+- curl -X GET -H "Content-Type: application/json"  http://localhost:3000/products/656cadae4143a1d5d63c4657
+- curl -X POST -H "Content-Type: application/json" -d '{"name": "Galletitas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' http://localhost:3000/products
+
 ### TRABAJO FINAL
 #### DESARROLLAR Y PRESENTAR:
 - Proyecto Frontend alojado en repositorio Github a nombre del alumno.
