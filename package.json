@@ -2,7 +2,7 @@
   "name": "mcga-final-grupo3-be",
   "version": "1.0.0",
   "description": "Backend Project for MCGA Final TP - Group 03",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
