@@ -1,5 +1,10 @@
 # mcga-final-grupo3-be
 
+##### Integrantes:
+- Maidana
+- Pochiero
+- Sanchez Palomino
+
 ### TRABAJO FINAL
 #### DESARROLLAR Y PRESENTAR:
 - Proyecto Frontend alojado en repositorio Github a nombre del alumno.
