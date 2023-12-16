@@ -1,33 +1,39 @@
 import app from '../src/app';
+import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 
-const port = 3000 || 8080;
+dotenv.config();
+databaseConnection();
 
-const MONGODB_URL =
-  'mongodb+srv://gonzalosanchez:hola123123@cluster0.zrttfst.mongodb.net/mcga-final?retryWrites=true&w=majority' ||
-  '';
+async function databaseConnection() {
+    if (process.env.DB_CONNECTION_STRING) {
+        await mongoose
+            .connect(process.env.DB_CONNECTION_STRING)
+            .then(() => {
+                console.log({
+                    level: 'info',
+                    message: '✅ Database connected',
+                    label: 'mongo',
+                });
+                app.listen(process.env.PORT, () => {
+                    console.log({
+                        level: 'info',
+                        message: `Server listening on port ${process.env.PORT}`,
+                        label: 'server',
+                    });
+                });
+            })
+            .catch((error) =>
+                console.log({
+                    level: 'error',
+                    message: '🔴 Database error: ',
+                    errorData: error,
+                    label: 'mongo',
+                }),
+            );
+    } else {
+        console.log("Missing DB Connection String");
+    }
+}
 
-mongoose
-    .connect(MONGODB_URL)
-    .then(() => {
-        console.log({
-            level: 'info',
-            message: '✅ Database connected',
-            label: 'mongo',
-        });
-        app.listen(port, () => {
-            console.log({
-                level: 'info',
-                message: `Server listening on port ${port}`,
-                label: 'server',
-            });
-        });
-    })
-    .catch((error) =>
-        console.log({
-            level: 'error',
-            message: '🔴 Database error: ',
-            errorData: error,
-            label: 'mongo',
-        }),
-    );
+
