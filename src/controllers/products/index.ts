@@ -4,12 +4,21 @@ import ProductModel from '../../models/product';
 const productsController = {
 
     getAll: async (_req: Request, res: Response) => {
-        const allProducts = await ProductModel.find();
-        return res.status(200).json({
-            status: 200,
-            total: allProducts.length,
-            data: allProducts,
-        });
+        try {
+            const allProducts = await ProductModel.find();
+            return res.status(200).json({
+                status: 200,
+                total: allProducts.length,
+                data: allProducts,
+            });
+        } catch (error) {
+            if (error instanceof Error) {
+                return res.status(500).json({
+                    message: error.message,
+                    error: true,
+                });
+            }
+        }
     },
 
     getById: async (_req: Request, res: Response) => {
@@ -23,7 +32,7 @@ const productsController = {
             }
         } catch (error) {
             if (error instanceof Error) {
-                return res.status(400).json({
+                return res.status(500).json({
                     message: error.message,
                     error: true,
                 });
@@ -37,7 +46,7 @@ const productsController = {
             const product = await newProduct.save();
 
             if (product) {
-                return res.status(201).json({
+                return res.status(200).json({
                     message: 'Product successfully created',
                     data: product,
                     error: false,
@@ -45,7 +54,7 @@ const productsController = {
             }
         } catch (error) {
             if (error instanceof Error) {
-                return res.status(400).json({
+                return res.status(500).json({
                     message: error.message,
                     error: true,
                 });
@@ -58,6 +67,8 @@ const productsController = {
             const productId = _req.params.id;
             const updateData = {
                 name: _req.body.name,
+                category: _req.body.category,
+                description: _req.body.description,
                 price: _req.body.price,
             };
 
@@ -67,7 +78,7 @@ const productsController = {
                 { new: true }
             );
             if (product) {
-                return res.status(201).json({
+                return res.status(200).json({
                     message: 'Product successfully updated',
                     data: product,
                     error: false,
@@ -76,7 +87,7 @@ const productsController = {
         } catch (error) {
             console.log(error);
             if (error instanceof Error) {
-                return res.status(400).json({
+                return res.status(500).json({
                     message: error.message,
                     error: true,
                 });
@@ -88,7 +99,7 @@ const productsController = {
         try {
             const product = await ProductModel.findByIdAndDelete(_req.params.id);
             if (product) {
-                return res.status(201).json({
+                return res.status(200).json({
                     message: 'Product successfully deleted',
                     data: product,
                     error: false,
@@ -96,7 +107,7 @@ const productsController = {
             }
         } catch (error) {
             if (error instanceof Error) {
-                return res.status(400).json({
+                return res.status(500).json({
                     message: error.message,
                     error: true,
                 });
