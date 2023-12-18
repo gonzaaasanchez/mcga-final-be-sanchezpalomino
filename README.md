@@ -1,8 +1,6 @@
 # mcga-final-grupo3-be
 
 #### Integrantes:
-- Maidana
-- Pochiero
 - Sanchez Palomino
 
 ### Servicios disponibles y ejemplos
