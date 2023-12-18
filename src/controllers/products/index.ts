@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import ProductModel from '../../models/product';
-import { verifyToken } from '../../middleware/index';
 
 const productsController = {
 
