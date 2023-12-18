@@ -1,9 +1,15 @@
 import app from '../src/app';
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
+import admin from 'firebase-admin';
 
 dotenv.config();
 databaseConnection();
+
+const serviceAccount = require('./middleware/firebase.json');
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
 
 async function databaseConnection() {
     if (process.env.DB_CONNECTION_STRING) {

@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import productsController from '../../controllers/products/index';
+import { verifyToken } from '../../middleware/index';
 
 const productsRouter = Router();
 
 productsRouter.get('/', productsController.getAll);
-productsRouter.post('/', productsController.create);
 productsRouter.get('/:id', productsController.getById);
-productsRouter.delete('/:id', productsController.delete);
-productsRouter.put('/:id', productsController.update);
+productsRouter.post('/', verifyToken, productsController.create);
+productsRouter.delete('/:id', verifyToken, productsController.delete);
+productsRouter.put('/:id', verifyToken, productsController.update);
 
 export default productsRouter;
