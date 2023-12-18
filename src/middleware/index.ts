@@ -6,16 +6,16 @@ const verifyToken = async (
     res: Response,
     next: NextFunction
 ) => {
-    const userFirebaseToken = req.header('X-Firebase-Token') as string | undefined;
+    const userFirebaseToken = req.headers.authorization as string | undefined;
     try {
         if (!userFirebaseToken) {
             res.status(401);
-            return next('Token not found');
+            throw new Error('Token not found');
         }
         await admin.auth().verifyIdToken(userFirebaseToken);
         next();
-    } catch (err) {
-        res.status(401).json({ error: 'Invalid token' })
+    } catch (error) {
+        res.status(401).json({ error: 'Invalid token: ' + error })
     }
 };
 
