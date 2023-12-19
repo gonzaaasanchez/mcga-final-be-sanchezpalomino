@@ -1,7 +1,7 @@
 {
-  "name": "mcga-final-grupo3-be",
+  "name": "mcga-final-sanchez-palomino",
   "version": "1.0.0",
-  "description": "Backend Project for MCGA Final TP - Group 03",
+  "description": "Backend Project for MCGA Final TP - Sanchez Palomino",
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
