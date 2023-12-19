@@ -1,4 +1,4 @@
-# mcga-final-grupo3-be
+# mcga-final-sanchez-palomino
 
 #### Integrantes:
 - Sanchez Palomino
