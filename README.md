@@ -5,7 +5,7 @@
 
 ### Servicios disponibles y ejemplos
 ##### Productos
-Hosten in Render: https://render.com
+Hosted in Render: https://render.com
 
 - GET https://mcga-final-be.onrender.com/products
 - GET https://mcga-final-be.onrender.com/products/656cadae4143a1d5d63c4657
