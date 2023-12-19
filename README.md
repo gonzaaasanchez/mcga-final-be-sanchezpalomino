@@ -10,10 +10,8 @@ Hosted in Render: https://render.com
 - GET https://mcga-final-be.onrender.com/products
 - GET https://mcga-final-be.onrender.com/products/656cadae4143a1d5d63c4657
 - POST https://mcga-final-be.onrender.com/products
-{"name": "Galletitas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' 
 - PUT https://mcga-final-be.onrender.com/products/656cadae4143a1d5d63c4657
-'{"name": "Galletitas editadas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' 
--  DELETE https://mcga-final-be.onrender.comproducts/{ID}
+- DELETE https://mcga-final-be.onrender.comproducts/{ID}
 
 ---
 ### TRABAJO FINAL: Enunciado
