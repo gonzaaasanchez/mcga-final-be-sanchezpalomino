@@ -5,11 +5,15 @@
 
 ### Servicios disponibles y ejemplos
 ##### Productos
-- curl -X GET -H "Content-Type: application/json"  http://localhost:3000/products
-- curl -X GET -H "Content-Type: application/json"  http://localhost:3000/products/656cadae4143a1d5d63c4657
-- curl -X POST -H "Content-Type: application/json" -d '{"name": "Galletitas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' http://localhost:3000/products
-- curl -X PUT -H "Content-Type: application/json" -d '{"name": "Galletitas editadas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' http://localhost:3000/products/656cadae4143a1d5d63c4657
-- curl -X DELETE -H "Content-Type: application/json"  http://localhost:3000/products/{ID}
+Hosten in Render: https://render.com
+
+- GET https://mcga-final-be.onrender.com/products
+- GET https://mcga-final-be.onrender.com/products/656cadae4143a1d5d63c4657
+- POST https://mcga-final-be.onrender.com/products
+{"name": "Galletitas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' 
+- PUT https://mcga-final-be.onrender.com/products/656cadae4143a1d5d63c4657
+'{"name": "Galletitas editadas", "category": "Panificados", "description": "Galletitas dulces surtidas", "price": 25}' 
+-  DELETE https://mcga-final-be.onrender.comproducts/{ID}
 
 ---
 ### TRABAJO FINAL: Enunciado
